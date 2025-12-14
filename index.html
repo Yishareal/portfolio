@@ -1,0 +1,792 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yisha Real | Virtual Assistant Portfolio</title>
+    <!-- Load Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    // --- Pastel Pink Theme Colors ---
+                    colors: {
+                        'bg-main': '#fef0f8',      // Very Light Pink (Main Background)
+                        'bg-card': '#ffffff',      // White (Container/Card Backgrounds)
+                        'accent-pink': '#f472b6',  // Soft Pink (Pink-400, Highlight/Accent)
+                        'text-primary': '#1e293b', // Dark Slate (Main Text)
+                        'text-secondary': '#475569',// Muted Slate (Secondary Text)
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    <!-- Custom style for smooth section transition on hover -->
+    <style>
+        .project-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer; /* Indicate it's clickable */
+        }
+        /* Using the accent-pink hex code for a soft shadow */
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px rgba(244, 114, 182, 0.4); 
+        }
+        /* Style for the Testimonial Cards */
+        .testimonial-card {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            height: 100%;
+        }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
+</head>
+<body class="bg-bg-main text-text-primary font-sans antialiased">
+
+    <!-- Header & Navigation -->
+    <header class="sticky top-0 z-50 bg-bg-card/95 backdrop-blur-sm shadow-xl border-b border-gray-200">
+        <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <!-- Logo/Name -->
+                <a href="#" class="text-2xl font-extrabold text-accent-pink hover:text-pink-600 transition duration-300">
+                    Yisha Real
+                </a>
+                <!-- Desktop Nav Links -->
+                <div class="hidden sm:ml-6 sm:flex sm:space-x-8">
+                    <a href="#about" class="text-text-primary hover:text-accent-pink px-3 py-2 rounded-md text-sm font-medium transition duration-300">About</a>
+                    <a href="#achievements" class="text-text-primary hover:text-accent-pink px-3 py-2 rounded-md text-sm font-medium transition duration-300">Education</a>
+                    <a href="#skills" class="text-text-primary hover:text-accent-pink px-3 py-2 rounded-md text-sm font-medium transition duration-300">Skills</a>
+                    <a href="#projects" class="text-text-primary hover:text-accent-pink px-3 py-2 rounded-md text-sm font-medium transition duration-300">Projects</a>
+                    <a href="#testimonials" class="text-text-primary hover:text-accent-pink px-3 py-2 rounded-md text-sm font-medium transition duration-300">Testimonials</a>
+                    <a href="#contact" class="text-text-primary hover:text-accent-pink px-3 py-2 rounded-md text-sm font-medium transition duration-300">Contact</a>
+                </div>
+                <!-- Mobile Menu Button (Hamburger) -->
+                <button id="mobile-menu-button" class="sm:hidden p-2 rounded-md text-text-primary hover:text-accent-pink hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-accent-pink" aria-expanded="false">
+                    <svg class="block h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                    </svg>
+                </button>
+            </div>
+        </nav>
+
+        <!-- Mobile Menu (Hidden by default) -->
+        <div class="sm:hidden" id="mobile-menu" style="display: none;">
+            <div class="px-2 pt-2 pb-3 space-y-1 bg-bg-card">
+                <a href="#about" class="text-text-primary hover:bg-gray-100 hover:text-accent-pink block px-3 py-2 rounded-md text-base font-medium transition duration-300">About</a>
+                <a href="#achievements" class="text-text-primary hover:bg-gray-100 hover:text-accent-pink block px-3 py-2 rounded-md text-base font-medium transition duration-300">Education</a>
+                <a href="#skills" class="text-text-primary hover:bg-gray-100 hover:text-accent-pink block px-3 py-2 rounded-md text-base font-medium transition duration-300">Skills</a>
+                <a href="#projects" class="text-text-primary hover:bg-gray-100 hover:text-accent-pink block px-3 py-2 rounded-md text-base font-medium transition duration-300">Projects</a>
+                <a href="#testimonials" class="text-text-primary hover:bg-gray-100 hover:text-accent-pink block px-3 py-2 rounded-md text-base font-medium transition duration-300">Testimonials</a>
+                <a href="#contact" class="text-text-primary hover:bg-gray-100 hover:text-accent-pink block px-3 py-2 rounded-md text-base font-medium transition duration-300">Contact</a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section id="hero" class="h-screen flex items-center justify-center text-center px-4 py-16 bg-bg-card border-b-4 border-accent-pink/50">
+            <div class="max-w-4xl space-y-6">
+                <span class="text-xl text-accent-pink font-medium uppercase tracking-widest block animate-pulse">Hello, I'm</span>
+                <h1 class="text-5xl sm:text-7xl font-extrabold tracking-tight leading-tight text-text-primary">
+                    Yisha Real 
+                </h1>
+                <p class="text-2xl sm:text-3xl text-text-secondary font-light mb-4">
+                    A passionate <span class="text-accent-pink font-semibold">Virtual Assistant</span> specializing in Account Management, Data Entry, Lead Generation, and Social Media Management.
+                </p>
+        
+                <div class="pt-8">
+                    <a href="#projects" class="bg-accent-pink text-white font-bold py-3 px-8 rounded-full shadow-lg hover:bg-pink-300 transition duration-300 transform hover:scale-105 inline-flex items-center space-x-2 group">
+                        <span>View My Work</span>
+                        <!-- Arrow icon -->
+                        <svg class="w-5 h-5 transition-transform duration-300 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+       <!-- About Section -->
+        <section id="about" class="py-20 lg:py-32 max-w-7xl mx-auto px-4 sm:px-10 lg:px-5">
+            <h2 class="text-4xl font-bold text-center mb-12 text-accent-pink">About Me</h2>
+            <div class="grid md:grid-cols-2 gap-10 items-center bg-bg-card p-8 rounded-xl shadow-2xl">
+                <!-- Image Placeholder: height h-80, border border-2, object-center for horizontal centering -->
+                <div class="w-full h-81 object-cover object-top rounded-lg border-2 border-accent-pink/50 shadow-inner">
+                    <!-- Set back to object-cover object-center for balanced look -->
+                    <img src="1718020042454.jpg" alt="Yisha Real Profile" class="w-full max-h-full object-top items-center object-cover" onerror="this.onerror=null;this.src='1718020042454.jpg';" />
+                </div>
+                <div class="space-y-6 text-lg text-text-secondary">
+                    <p>I am a multi-skilled Virtual Assistant and business optimizer with a commitment to transforming operational burdens into streamlined success. My journey began with a focus on administrative precision and organization, leading me to specialize in maximizing efficiency across tasks, from detailed data entry to strategic lead generation.</p>
+                    <p>My core philosophy is to serve as the proactive, creative engine behind your goals, allowing you to focus purely on strategic growth. I thrive on bringing both rigorous structure (admin, data management) and eye-catching aesthetics (graphic design, social media) to every project. When I'm not organizing calendars or crafting outreach strategies, I enjoy exploring new design software and finding innovative ways to automate processes.</p>
+                    <a href="#contact" class="inline-block text-accent-pink font-medium hover:text-pink-500 underline decoration-2 decoration-accent-pink/50 hover:decoration-pink-500/70 transition duration-300">
+                        Let's connect and build something amazing.
+                    </a>
+                </div>
+            </div>
+        </section>
+        
+        <!-- ACHIEVEMENTS/EDUCATION Section -->
+        <section id="achievements" class="py-20 lg:py-32 bg-bg-main">
+            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+                <h2 class="text-4xl font-bold text-center mb-12 text-accent-pink">Education & Achievements</h2>
+                
+                <div class="space-y-8">
+                    <!-- Achievement 1: STI College -->
+                    <div class="bg-bg-card p-6 rounded-xl shadow-lg border border-gray-200 hover:border-accent-pink transition duration-300">
+                        <div class="flex justify-between items-start">
+                            <div>
+                                <h3 class="text-xl font-bold text-text-primary">Systems Technology Institute (STI) College</h3>
+                                <p class="text-lg font-medium text-text-secondary">Bachelor of Science in Information Technology, Programming</p>
+                            </div>
+                            <span class="text-sm text-text-secondary font-semibold bg-bg-main px-3 py-1 rounded-full">2024—2028 (Expected)</span>
+                        </div>
+                    </div>
+
+                    <!-- Achievement 2: St. Ignatius Technical Institute -->
+                    <div class="bg-bg-card p-6 rounded-xl shadow-lg border border-gray-200 hover:border-accent-pink transition duration-300">
+                        <div class="flex justify-between items-start">
+                            <div>
+                                <h3 class="text-xl font-bold text-text-primary">St. Ignatius Technical Institute of Business and Arts</h3>
+                                <p class="text-lg font-medium text-text-secondary">Information Communication and Technology</p>
+                            </div>
+                            <span class="text-sm text-text-secondary font-semibold bg-bg-main px-3 py-1 rounded-full">2019—2021</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- Skills Section - List of Soft Skills & Categories -->
+        <section id="skills" class="py-20 lg:py-32 bg-bg-card">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <h2 class="text-4xl font-bold text-center mb-16 text-accent-pink">Core Professional Skills</h2>
+                <!-- Added a brief introductory text for context -->
+                <p class="text-center text-text-secondary max-w-3xl mx-auto mb-10 text-xl">
+                    I offer targeted expertise in the following key areas, combining administrative precision with strategic growth activities.
+                </p>
+                <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-6">
+                    
+                    <!-- Skill Card 1: Administrative & Productivity -->
+                    <div class="flex flex-col items-center p-6 bg-bg-main rounded-xl shadow-lg border border-gray-100 hover:border-accent-pink transition duration-300">
+                        <!-- Icon: Clipboard/File -->
+                        <svg class="w-12 h-12 text-accent-pink mb-3" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M14.5 2H6a2 2 0 0 0-2 sanitation 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z" class="text-accent-pink" stroke="currentColor" stroke-width="2"></path>
+                            <polyline points="14 2 14 8 20 8" stroke="currentColor" stroke-width="2"></polyline>
+                            <line x1="8" y1="13" x2="16" y2="13" stroke="currentColor" stroke-width="1.5"></line>
+                            <line x1="8" y1="17" x2="14" y2="17" stroke="currentColor" stroke-width="1.5"></line>
+                        </svg>
+                        <span class="text-lg font-medium text-text-primary text-center">Administrative & Productivity</span>
+                    </div>
+
+                    <!-- Skill Card 2: Design & Content Creation -->
+                    <div class="flex flex-col items-center p-6 bg-bg-main rounded-xl shadow-lg border border-gray-100 hover:border-accent-pink transition duration-300">
+                        <!-- Icon: Pen/Feather -->
+                        <svg class="w-12 h-12 text-accent-pink mb-3" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M12 20h9" stroke="currentColor" stroke-width="2"></path>
+                            <path d="M16.5 3.5l-2.4 2.4c-1.3 1.3-1.3 3.3 0 4.6l5.2 5.2c1.3 1.3 3.3 1.3 4.6 0l2.4-2.4" stroke="currentColor" stroke-width="2"></path>
+                            <path d="M15 5l-10 10 2 2 10-10M17 7l2 2" stroke="currentColor" stroke-width="2"></path>
+                        </svg>
+                        <span class="text-lg font-medium text-text-primary text-center">Design & Content Creation</span>
+                    </div>
+
+                    <!-- Skill Card 3: Social Media Management -->
+                    <div class="flex flex-col items-center p-6 bg-bg-main rounded-xl shadow-lg border border-gray-100 hover:border-accent-pink transition duration-300">
+                        <!-- Icon: Share/Network -->
+                        <svg class="w-12 h-12 text-accent-pink mb-3" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="18" cy="5" r="3" class="text-accent-pink" stroke="currentColor" stroke-width="2"></circle>
+                            <circle cx="6" cy="12" r="3" class="text-accent-pink" stroke="currentColor" stroke-width="2"></circle>
+                            <circle cx="18" cy="19" r="3" class="text-accent-pink" stroke="currentColor" stroke-width="2"></circle>
+                            <line x1="8.59" y1="13.51" x2="15.42" y2="17.49" stroke="currentColor" stroke-width="2"></line>
+                            <line x1="15.41" y1="6.51" x2="8.59" y2="10.49" stroke="currentColor" stroke-width="2"></line>
+                        </svg>
+                        <span class="text-lg font-medium text-text-primary text-center">Social Media Management</span>
+                    </div>
+
+                    <!-- Skill Card 4: Data & Research -->
+                    <div class="flex flex-col items-center p-6 bg-bg-main rounded-xl shadow-lg border border-gray-100 hover:border-accent-pink transition duration-300">
+                        <!-- Icon: Bar Chart -->
+                        <svg class="w-12 h-12 text-accent-pink mb-3" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <line x1="12" y1="20" x2="12" y2="10" stroke="currentColor" stroke-width="2"></line>
+                            <line x1="18" y1="20" x2="18" y2="4" stroke="currentColor" stroke-width="2"></line>
+                            <line x1="6" y1="20" x2="6" y2="16" stroke="currentColor" stroke-width="2"></line>
+                            <line x1="4" y1="20" x2="20" y2="20" stroke="currentColor" stroke-width="2"></line>
+                        </svg>
+                        <span class="text-lg font-medium text-text-primary text-center">Data & Research</span>
+                    </div>
+
+                    <!-- Skill Card 5: Specialized Account Management -->
+                    <div class="flex flex-col items-center p-6 bg-bg-main rounded-xl shadow-lg border border-gray-100 hover:border-accent-pink transition duration-300">
+                        <!-- Icon: Briefcase -->
+                        <svg class="w-12 h-12 text-accent-pink mb-3" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <rect x="2" y="7" width="20" height="14" rx="2" ry="2" class="text-accent-pink" stroke="currentColor" stroke-width="2"></rect>
+                            <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16" stroke="currentColor" stroke-width="2"></path>
+                        </svg>
+                        <span class="text-lg font-medium text-text-primary text-center">Client Relationship & Support</span>
+                    </div>
+
+                    <!-- Skill Card 6: Communication & Other -->
+                    <div class="flex flex-col items-center p-6 bg-bg-main rounded-xl shadow-lg border border-gray-100 hover:border-accent-pink transition duration-300">
+                        <!-- Icon: Message Square -->
+                        <svg class="w-12 h-12 text-accent-pink mb-3" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" class="text-accent-pink" stroke="currentColor" stroke-width="2"></path>
+                        </svg>
+                        <span class="text-lg font-medium text-text-primary text-center">Process Automation & Ops</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Section (Updated for VA focus) -->
+        <section id="projects" class="py-20 lg:py-32 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-4xl font-bold text-center mb-16 text-accent-pink">Featured Projects</h2>
+            <!-- Updated grid layout to handle 4 cards gracefully (2x2 on medium, 4 columns on large) -->
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+
+                <!-- Project Card 1: Comprehensive Virtual Assistant Services (REPLACED) -->
+                <div class="project-card js-project-card bg-bg-card rounded-xl overflow-hidden shadow-2xl border border-gray-100" data-project-id="project-1">
+                    <!-- Image Placeholder for VA Services -->
+                    <img src="virtual-assistant.png" alt="Comprehensive Virtual Assistant Services" class="w-full h-48 object-cover border-b border-gray-100">
+                    <div class="p-6 space-y-4">
+                        <h3 class="text-xl font-semibold text-text-primary">Comprehensive Virtual Assistant Services</h3>
+                        <p class="text-text-secondary text-sm">Offering end-to-end operational support, calendar management, email handling, and general administrative task optimization to streamline client workflows.</p>
+                        <div class="flex flex-wrap gap-2 pt-2">
+                            <span class="text-xs font-medium bg-accent-pink/20 text-accent-pink px-3 py-1 rounded-full">Google Workspace</span>
+                            <span class="text-xs font-medium bg-accent-pink/20 text-accent-pink px-3 py-1 rounded-full">Notion/Airtable</span>
+                        </div>
+                        <span class="inline-block text-accent-pink font-medium transition duration-300 pt-2 underline cursor-pointer">
+                            View Details &rarr;
+                        </span>
+                    </div>
+                </div>
+
+                <!-- Project Card 2: Data Entry & Internet Research (REPLACED) -->
+                <div class="project-card js-project-card bg-bg-card rounded-xl overflow-hidden shadow-2xl border border-gray-100" data-project-id="project-2">
+                    <!-- Image Placeholder for Data Entry / Research -->
+                    <img src="images (1).jpg" alt="Data Entry and Internet Research" class="w-full h-48 object-cover border-b border-gray-100">
+                    <div class="p-6 space-y-4">
+                        <h3 class="text-xl font-semibold text-text-primary">Data Entry & Internet Research</h3>
+                        <p class="text-text-secondary text-sm">Expertise in rapidly and accurately transcribing data, maintaining database integrity, and conducting targeted internet research for market analysis or lead generation.</p>
+                        <div class="flex flex-wrap gap-2 pt-2">
+                            <span class="text-xs font-medium bg-accent-pink/20 text-accent-pink px-3 py-1 rounded-full">Google Sheets/Excel</span>
+                            <span class="text-xs font-medium bg-accent-pink/20 text-accent-pink px-3 py-1 rounded-full">Web Scraping Tools</span>
+                        </div>
+                        <span class="inline-block text-accent-pink font-medium transition duration-300 pt-2 underline cursor-pointer">
+                            View Details &rarr;
+                        </span>
+                    </div>
+                </div>
+
+                <!-- Project Card 3: Lead Generation Management (REPLACED) -->
+                <div class="project-card js-project-card bg-bg-card rounded-xl overflow-hidden shadow-2xl border border-gray-100" data-project-id="project-3">
+                    <!-- Image Placeholder for Data Management -->
+                    <img src="1708357583.png" alt="Lead Generation Management" class="w-full h-48 object-cover border-b border-gray-100">
+                    <div class="p-6 space-y-4">
+                        <h3 class="text-xl font-semibold text-text-primary">Lead Generation Management</h3>
+                        <p class="text-text-secondary text-sm">Implemented a structured system for identifying, qualifying, and managing high-value leads through cold outreach and CRM maintenance.</p>
+                        <div class="flex flex-wrap gap-2 pt-2">
+                            <span class="text-xs font-medium bg-accent-pink/20 text-accent-pink px-3 py-1 rounded-full">CRM</span>
+                            <span class="text-xs font-medium bg-accent-pink/20 text-accent-pink px-3 py-1 rounded-full">LinkedIn Outreach</span>
+                        </div>
+                        <span class="inline-block text-accent-pink font-medium transition duration-300 pt-2 underline cursor-pointer">
+                            View Details &rarr;
+                        </span>
+                    </div>
+                </div>
+                
+                <!-- Project Card 4: Dating Account Management (Original) -->
+                <div class="project-card js-project-card bg-bg-card rounded-xl overflow-hidden shadow-2xl border border-gray-100" data-project-id="project-4">
+                    <!-- Image Placeholder for Dating Account Management -->
+                    <img src="1.png" alt="Dating Account Management Project" class="w-full h-48 object-cover border-b border-gray-100">
+                    <div class="p-6 space-y-4">
+                        <h3 class="text-xl font-semibold text-text-primary">Dating Account Management</h3>
+                        <p class="text-text-secondary text-sm">Provided specialized account optimization and personalized communication strategies across premium dating platforms, significantly increasing match quality and scheduled dates.</p>
+                        <div class="flex flex-wrap gap-2 pt-2">
+                            <span class="text-xs font-medium bg-accent-pink/20 text-accent-pink px-3 py-1 rounded-full">Profile Copywriting</span>
+                            <span class="text-xs font-medium bg-accent-pink/20 text-accent-pink px-3 py-1 rounded-full">Message Optimization</span>
+                        </div>
+                        <span class="inline-block text-accent-pink font-medium transition duration-300 pt-2 underline cursor-pointer">
+                            View Details &rarr;
+                        </span>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- TESTIMONIALS Section -->
+        <section id="testimonials" class="py-20 lg:py-32 bg-bg-main">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <h2 class="text-4xl font-bold text-center mb-16 text-accent-pink">Client Testimonials & Reviews</h2>
+                
+                <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                    
+                    <!-- NEW Testimonial 0: Spotify Research (Updated with Earnings) -->
+                    <div class="testimonial-card bg-bg-card p-6 rounded-xl shadow-lg border-t-4 border-accent-pink">
+                        <div class="space-y-3">
+                            <p class="text-xs text-text-secondary font-semibold">April 2025 - December 2025 • Client: Dott</p>
+                            <h4 class="text-lg font-bold text-text-primary">Spotify Research (Training & Data)</h4>
+                            <p class="text-xs font-semibold text-text-secondary">$1000.00 earned </p>
+                            <div class="border-t pt-3 space-y-2">
+                                <p class="text-sm font-semibold text-text-primary">Client Review (5.0/5.0):</p>
+                                <blockquote class="italic text-text-secondary text-base">"Im open to work again in the future. we trained a lot this year"</blockquote>
+                                <p class="text-xs font-semibold text-text-primary pt-2">My Review to Client:</p>
+                                <p class="text-xs text-text-secondary">"Thank you so much! I really appreciate everything I've learned from you. I'm glad to hear you're open to working again in the future. Wishing you all the best in your next steps, and if ever you decide to restart, I’d be happy to support again."</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Testimonial 1: REMOJO App Testing -->
+                    <div class="testimonial-card bg-bg-card p-6 rounded-xl shadow-lg border-t-4 border-accent-pink">
+                        <div class="space-y-3">
+                            <p class="text-xs text-text-secondary font-semibold">Jul 14, 2021 - Jul 17, 2021</p>
+                            <h4 class="text-lg font-bold text-text-primary">20 Minutes Simple App Testing and Feedback for REMOJO App (Android)</h4>
+                            <p class="text-xs font-semibold text-text-secondary">$9.00 earned</p>
+                            <div class="border-t pt-3 space-y-2">
+                                <p class="text-sm font-semibold text-text-primary">Client Review (5.0/5.0):</p>
+                                <blockquote class="italic text-text-secondary text-base">"Yisha Real, work was great"</blockquote>
+                                <p class="text-xs font-semibold text-text-primary pt-2">My Review to Client (3.7/5.0):</p>
+                                <p class="text-xs text-text-secondary">"Such a great client! Looking forward to work with them again!"</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Testimonial 2: Freelance Data Researcher -->
+                    <div class="testimonial-card bg-bg-card p-6 rounded-xl shadow-lg border-t-4 border-accent-pink">
+                        <div class="space-y-3">
+                            <p class="text-xs text-text-secondary font-semibold">Jun 18, 2024 - Nov 30, 2024</p>
+                            <h4 class="text-lg font-bold text-text-primary">Freelance Data Researcher for Salary Information Tables</h4>
+                            <p class="text-xs font-semibold text-text-secondary">$190.00 earned</p>
+                            <div class="border-t pt-3 space-y-2">
+                                <p class="text-sm font-semibold text-text-primary">Client Review:</p>
+                                <p class="italic text-red-500 text-base">No feedback given</p>
+                                <p class="text-xs font-semibold text-text-primary pt-2">My Review to Client (5.0/5.0):</p>
+                                <p class="text-xs text-text-secondary">Positive rating provided.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Testimonial 3: FB Groups + Canva Support -->
+                    <div class="testimonial-card bg-bg-card p-6 rounded-xl shadow-lg border-t-4 border-accent-pink">
+                        <div class="space-y-3">
+                            <p class="text-xs text-text-secondary font-semibold">Sep 2, 2025 - Sep 17, 2025 • 5 hours</p>
+                            <h4 class="text-lg font-bold text-text-primary">FB Groups + Canva Support</h4>
+                            <p class="text-xs font-semibold text-text-secondary">$30.00 earned</p>
+                            <div class="border-t pt-3 space-y-2">
+                                <p class="text-sm font-semibold text-text-primary">Client Review (3.6/5.0):</p>
+                                <blockquote class="italic text-text-secondary text-base">"Yisha was professional and responsive. Ultimately, the role wasn’t the right fit for what I needed, but I wish her all the best with future projects."</blockquote>
+                                <div class="mt-2 flex flex-wrap gap-2">
+                                    <span class="text-xs font-medium bg-green-100 text-green-700 px-2 py-0.5 rounded-full">Professional</span>
+                                    <span class="text-xs font-medium bg-green-100 text-green-700 px-2 py-0.5 rounded-full">Clear Communicator</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Testimonial 4: Facebook page & group research -->
+                    <div class="testimonial-card bg-bg-card p-6 rounded-xl shadow-lg border-t-4 border-accent-pink">
+                        <div class="space-y-3">
+                            <p class="text-xs text-text-secondary font-semibold">Jul 22, 2021 - Jul 31, 2021 • 34 hours</p>
+                            <h4 class="text-lg font-bold text-text-primary">Facebook page & group research</h4>
+                            <p class="text-xs font-semibold text-text-secondary">$101.00 earned</p>
+                            <div class="border-t pt-3 space-y-2">
+                                <p class="text-sm font-semibold text-text-primary">Client Review (5.0/5.0):</p>
+                                <blockquote class="italic text-text-secondary text-base">"Yisha worked really hard on my project, I'd definitely recommend her."</blockquote>
+                                <p class="text-xs font-semibold text-text-primary pt-2">My Review to Client (5.0/5.0):</p>
+                                <p class="text-xs text-text-secondary">"Matthew is a great client, he gives a proper instructions. Looking forward to work with him again."</p>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section (UPDATED FOR FALLBACK MOCK SUBMISSION) -->
+        <section id="contact" class="py-20 lg:py-32 bg-bg-card">
+            <div class="max-w-xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                <h2 class="text-4xl font-bold mb-4 text-accent-pink">Get in Touch</h2>
+                <p class="text-lg text-text-secondary mb-8">Have a project in mind or just want to say hello? Send me a message, and I'll get back to you as soon as possible.</p>
+
+                <form id="contact-form" class="space-y-4 bg-bg-main p-8 rounded-xl shadow-2xl border border-gray-100">
+                    <!-- Name Input -->
+                    <input type="text" id="contact-name" placeholder="Your Name" class="w-full p-3 rounded-lg bg-white border border-gray-200 text-text-primary placeholder-text-secondary focus:ring-accent-pink focus:border-accent-pink transition duration-200" required>
+                    <!-- Email Input -->
+                    <input type="email" id="contact-email" placeholder="Your Email" class="w-full p-3 rounded-lg bg-white border border-gray-200 text-text-primary placeholder-text-secondary focus:ring-accent-pink focus:border-accent-pink transition duration-200" required>
+                    <!-- Message Textarea -->
+                    <textarea id="contact-message" placeholder="Your Message" rows="5" class="w-full p-3 rounded-lg bg-white border border-gray-200 text-text-primary placeholder-text-secondary focus:ring-accent-pink focus:border-accent-pink transition duration-200" required></textarea>
+                    
+                    <!-- Submit Button -->
+                    <button type="submit" id="submit-btn" class="w-full bg-accent-pink text-white font-bold py-3 rounded-lg shadow-lg hover:bg-pink-300 transition duration-300 transform hover:scale-[1.02]">
+                        Send Message
+                    </button>
+
+                    <!-- Feedback Message Area -->
+                    <p id="form-feedback" class="pt-2 text-sm text-center min-h-6"></p>
+
+                    <!-- User ID Display for Debug/Confirmation -->
+                    <p id="user-id-info" class="text-xs text-text-secondary/70 break-words mt-4">Initializing application...</p>
+                </form>
+
+                 <!-- Debug/Mock data display area -->
+                <div id="mock-submission-data" class="mt-8 p-4 bg-yellow-50 rounded-lg shadow-inner text-left text-sm text-yellow-700 hidden">
+                    <p class="font-bold text-base mb-2">Simulated Data Storage (Database Offline):</p>
+                    <p>Your message was successfully captured by the local mock system. When the database is active, this data is saved externally. (Check console for raw data.)</p>
+                    <pre id="mock-data-pre" class="mt-2 text-xs bg-yellow-100 p-2 rounded-md overflow-x-auto"></pre>
+                </div>
+
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-bg-card border-t border-gray-200 py-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-text-secondary text-sm">
+            <p>&copy; 2025 Yisha Real Portfolio. All rights reserved.</p>
+            <div class="flex justify-center space-x-4 mt-4">
+                <a href="#" class="hover:text-accent-pink transition duration-300">Email</a>
+                <a href="#" class="hover:text-accent-pink transition duration-300">LinkedIn</a>
+                <a href="#" class="hover:text-accent-pink transition duration-300">Instagram</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- PROJECT DETAILS MODAL -->
+    <div id="project-modal" class="fixed inset-0 bg-text-primary/70 z-[60] flex items-center justify-center p-4 transition-opacity duration-300 opacity-0 pointer-events-none" aria-hidden="true">
+        <div role="dialog" aria-modal="true" class="bg-bg-card w-full max-w-2xl max-h-full rounded-xl shadow-2xl overflow-y-auto transform transition-all duration-300 scale-95">
+            <div class="p-6 sm:p-8">
+                <!-- Modal Header -->
+                <div class="flex justify-between items-start border-b pb-4 mb-4 sticky top-0 bg-bg-card">
+                    <h3 id="modal-title" class="text-3xl font-extrabold text-accent-pink">Project Title</h3>
+                    <button onclick="closeModal()" class="text-text-secondary hover:text-accent-pink p-1 rounded-full transition duration-150">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+                    </button>
+                </div>
+                
+                <!-- Modal Body - Content injected by JS -->
+                <div id="modal-content" class="space-y-6 text-text-primary">
+                    <!-- Dynamic content goes here -->
+                </div>
+                
+                <!-- Modal Footer -->
+                <div class="mt-6 pt-4 border-t text-right">
+                    <button onclick="closeModal()" class="bg-text-secondary text-white font-medium py-2 px-4 rounded-lg hover:bg-gray-700 transition duration-300">
+                        Close
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Firebase and Application Logic -->
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
+        import { getAuth, signInAnonymously, signInWithCustomToken, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
+        import { getFirestore, addDoc, collection, serverTimestamp, setLogLevel } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
+
+        // Set Firebase logging level
+        setLogLevel('error');
+
+        // --- GLOBAL VARIABLES (Provided by Canvas Environment) ---
+        const appId = typeof __app_id !== 'undefined' ? __app_id : 'default-app-id';
+        
+        let firebaseConfig = {};
+        let isFirebaseActive = false;
+        try {
+            // Attempt to parse the config string, falling back to an empty object if undefined/null
+            firebaseConfig = JSON.parse(typeof __firebase_config !== 'undefined' && __firebase_config ? __firebase_config : '{}');
+        } catch (e) {
+            console.error("Failed to parse Firebase configuration JSON:", e);
+            // firebaseConfig remains {} if parsing fails
+        }
+
+        const initialAuthToken = typeof __initial_auth_token !== 'undefined' ? __initial_auth_token : null;
+
+        let db, auth, userId = 'mock-user-id-' + Math.random().toString(36).substring(2, 9); // Fallback mock ID
+        let isAuthReady = false;
+        
+        // DOM Elements
+        const form = document.getElementById('contact-form');
+        const submitBtn = document.getElementById('submit-btn');
+        const formFeedback = document.getElementById('form-feedback');
+        const userIdInfo = document.getElementById('user-id-info');
+        const mockDataContainer = document.getElementById('mock-submission-data');
+        const mockDataPre = document.getElementById('mock-data-pre');
+
+        // Modal Elements
+        const modal = document.getElementById('project-modal');
+        const modalTitle = document.getElementById('modal-title');
+        const modalContent = document.getElementById('modal-content');
+
+        // Firestore collection path (Public data, so anyone can submit)
+        const MESSAGE_COLLECTION_PATH = `artifacts/${appId}/public/data/contact_messages`;
+
+        // --- PROJECT DATA FOR MODAL ---
+        const projectData = {
+            'project-1': {
+                title: 'Comprehensive Virtual Assistant Services',
+                summary: 'Offering end-to-end operational support, calendar management, email handling, and general administrative task optimization to streamline client workflows.',
+                details: [
+                    'Managed daily administrative tasks, reducing executive workload by 30%.',
+                    'Handled and filtered high-volume email correspondence, prioritizing urgent communications.',
+                    'Coordinated complex scheduling, including internal and external meetings and travel logistics.',
+                    'Created and organized digital documentation and filing systems in cloud storage platforms.',
+                    'Successfully onboarded new clients by preparing welcome kits and initial documentation.'
+                ],
+                technologies: ['Google Workspace', 'Microsoft Office', 'Notion/Airtable', 'Slack', 'Calendar Management']
+            },
+            'project-2': {
+                title: 'Data Entry & Internet Research',
+                summary: 'Expertise in rapidly and accurately transcribing data, maintaining database integrity, and conducting targeted internet research for market analysis or lead generation.',
+                details: [
+                    'Achieved a 99% accuracy rate on high-volume data transcription from physical documents to digital spreadsheets.',
+                    'Designed and implemented data cleaning protocols, correcting and standardizing over 10,000 records in an existing database.',
+                    'Conducted detailed market research across industry-specific sources to identify emerging trends and competitors.',
+                    'Performed targeted lead generation by researching and validating contact information from public records and LinkedIn.',
+                    'Generated concise reports summarizing research findings, presented in an easy-to-read dashboard format.'
+                ],
+                technologies: ['Google Sheets/Excel', 'Airtable', 'Web Scraping Tools', 'Market Analysis', 'Data Validation']
+            },
+            'project-3': {
+                title: 'Lead Generation Management',
+                summary: 'Implemented a structured system for identifying, qualifying, and managing high-value leads through cold outreach and CRM maintenance.',
+                details: [
+                    'Developed Ideal Customer Profiles (ICP) and strategic search parameters for targeted outreach.',
+                    'Managed and segmented lead databases in CRM (Pipedrive), ensuring clean pipeline flow.',
+                    'Drafted and personalized cold outreach sequences resulting in a high reply and conversion rate.',
+                    'Tracked lead activity and performance metrics to optimize follow-up timing and strategy.',
+                    'Provided weekly reports detailing pipeline health, outreach volume, and qualified lead conversion rates.'
+                ],
+                technologies: ['CRM (Pipedrive)', 'LinkedIn Outreach', 'Email Sequencing', 'Lead Qualification', 'Performance Reporting']
+            },
+            'project-4': {
+                title: 'Dating Account Management Strategy',
+                summary: 'Provided specialized account optimization and personalized communication strategies across premium dating platforms, significantly increasing match quality and scheduled dates.',
+                details: [
+                    'Conducted full profile audits, optimizing photos, bios, and preference settings for target demographics.',
+                    'Wrote and refined compelling, personalized opening messages and conversational scripts.',
+                    'Managed and filtered inbound messages, prioritizing high-potential matches and maintaining conversational flow.',
+                    'Scheduled and confirmed 3-5 high-quality dates per week, handling all logistical coordination.',
+                    'Analyzed conversational feedback to continuously refine strategies and messaging effectiveness.'
+                ],
+                technologies: ['Tinder/Hinge/Bumble', 'Profile Copywriting', 'Photo Selection & Optimization', 'Communication Strategy', 'Calendar Management (Google/Outlook)']
+            }
+        };
+
+
+        // --- MODAL FUNCTIONS ---
+        // Expose function globally for the close button's onclick
+        window.closeModal = () => {
+            modal.classList.remove('opacity-100');
+            modal.classList.add('opacity-0', 'pointer-events-none');
+            modal.children[0].classList.remove('scale-100');
+            modal.children[0].classList.add('scale-95');
+
+            // Restore scrolling on the body
+            document.body.style.overflow = 'auto';
+        };
+
+        const showProjectDetails = (projectId) => {
+            const data = projectData[projectId];
+            if (!data) return;
+
+            // 1. Update Title
+            modalTitle.textContent = data.title;
+
+            // 2. Build Content HTML
+            let contentHtml = `
+                <div class="mb-4">
+                    <p class="text-lg text-text-secondary italic">${data.summary}</p>
+                </div>
+                <div class="space-y-4">
+                    <h4 class="text-xl font-semibold text-text-primary border-b pb-2">Key Actions & Experience:</h4>
+                    <ul class="list-disc list-inside text-text-primary ml-4 space-y-2">
+                        ${data.details.map(detail => `<li class="text-base">${detail}</li>`).join('')}
+                    </ul>
+                </div>
+                <div class="space-y-4">
+                    <h4 class="text-xl font-semibold text-text-primary border-b pb-2">Technologies Used:</h4>
+                    <div class="flex flex-wrap gap-2">
+                        ${data.technologies.map(tech => 
+                            `<span class="text-sm font-medium bg-accent-pink/20 text-accent-pink px-3 py-1 rounded-full">${tech}</span>`
+                        ).join('')}
+                    </div>
+                </div>
+            `;
+
+            // 3. Inject and Display
+            modalContent.innerHTML = contentHtml;
+            modal.classList.remove('opacity-0', 'pointer-events-none');
+            modal.classList.add('opacity-100');
+            // Modal body animation
+            modal.children[0].classList.remove('scale-95');
+            modal.children[0].classList.add('scale-100');
+
+            // Prevent scrolling on the body when modal is open
+            document.body.style.overflow = 'hidden';
+        };
+
+        // Close modal when clicking outside (on the overlay)
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                closeModal();
+            }
+        });
+
+
+        // --- Event Listener Setup (FIX) ---
+        function setupProjectListeners() {
+            // Select all project cards using the dedicated class
+            const projectCards = document.querySelectorAll('.js-project-card');
+            
+            projectCards.forEach(card => {
+                card.addEventListener('click', () => {
+                    // Read the project ID directly from the data attribute
+                    const projectId = card.getAttribute('data-project-id');
+                    showProjectDetails(projectId);
+                });
+            });
+            console.log("Project listeners successfully attached.");
+        }
+
+
+        // --- Firebase Initialization and Authentication ---
+
+        async function initializeFirebase() {
+            // CRITICAL CHECK: Ensure we have a projectId before calling initializeApp
+            if (!firebaseConfig || !firebaseConfig.projectId) {
+                console.error("Firebase configuration missing 'projectId'. Falling back to local mock submission.");
+                userIdInfo.textContent = 'NOTICE: Database configuration missing. Using local submission mock.';
+                isAuthReady = true; // Auth is "ready" for mock submission
+                isFirebaseActive = false;
+                submitBtn.disabled = false; // Enable button for mock submission
+                setupProjectListeners(); // Setup project listeners here too
+                return; // Stop initialization and rely on mock handler
+            }
+
+            try {
+                const app = initializeApp(firebaseConfig);
+                db = getFirestore(app);
+                auth = getAuth(app);
+                isFirebaseActive = true;
+
+                // 1. Handle Authentication State Change
+                onAuthStateChanged(auth, async (user) => {
+                    if (user) {
+                        userId = user.uid;
+                        isAuthReady = true;
+                        submitBtn.disabled = false;
+                        userIdInfo.textContent = `Visitor ID established: ${userId}. This ID is saved with your message.`;
+                        console.log("Firebase Authentication successful. User ID:", userId);
+                    } else {
+                        // Attempt to sign in if not already authenticated
+                        if (initialAuthToken) {
+                            await signInWithCustomToken(auth, initialAuthToken);
+                        } else {
+                            await signInAnonymously(auth);
+                        }
+                    }
+                });
+
+                // Attach project listeners once firebase is initialized and auth flow has started
+                setupProjectListeners(); 
+
+
+            } catch (error) {
+                console.error("Firebase initialization or sign-in failed:", error);
+                userIdInfo.textContent = `Error: Database initialization failed. Falling back to local mock.`;
+                isAuthReady = true; // Fallback to mock behavior
+                isFirebaseActive = false;
+                submitBtn.disabled = false;
+                setupProjectListeners();
+            }
+        }
+
+        // --- Form Submission Handler ---
+
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault();
+
+            if (!isAuthReady) {
+                formFeedback.className = 'text-red-500';
+                formFeedback.textContent = 'Application still loading. Please wait.';
+                return;
+            }
+
+            submitBtn.disabled = true;
+            formFeedback.className = 'text-accent-pink';
+            formFeedback.textContent = 'Processing message...';
+
+            const name = document.getElementById('contact-name').value.trim();
+            const email = document.getElementById('contact-email').value.trim();
+            const message = document.getElementById('contact-message').value.trim();
+
+            const messageData = {
+                senderId: userId,
+                name: name,
+                email: email,
+                message: message,
+                timestamp: new Date().toISOString(),
+            };
+            
+            if (isFirebaseActive) {
+                // --- LIVE FIREBASE SUBMISSION ---
+                messageData.timestamp = serverTimestamp(); // Use Firebase server timestamp
+
+                try {
+                    await addDoc(collection(db, MESSAGE_COLLECTION_PATH), messageData);
+                    formFeedback.className = 'text-green-600';
+                    formFeedback.textContent = 'Message sent successfully! (Saved to Firestore)';
+                    form.reset();
+                    mockDataContainer.classList.add('hidden'); // Hide mock data display
+
+                } catch (error) {
+                    console.error("Error submitting contact message to Firebase:", error);
+                    formFeedback.className = 'text-red-500';
+                    formFeedback.textContent = `Submission failed (Firebase Error): ${error.message}`;
+                }
+            } else {
+                // --- FALLBACK MOCK SUBMISSION (Database Offline) ---
+                console.warn("Database is offline. Simulating submission locally.");
+                console.log("MOCK SUBMISSION DATA:", messageData);
+
+                // Display mock data to the user
+                mockDataPre.textContent = JSON.stringify(messageData, null, 2);
+                mockDataContainer.classList.remove('hidden');
+
+                formFeedback.className = 'text-green-600';
+                formFeedback.textContent = 'Message captured successfully! (Locally simulated)';
+                form.reset();
+            }
+
+            submitBtn.disabled = false;
+        });
+
+        // Initialize mobile menu toggle (existing logic)
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        mobileMenuButton.addEventListener('click', () => {
+            const isExpanded = mobileMenuButton.getAttribute('aria-expanded') === 'true' || false;
+            mobileMenuButton.setAttribute('aria-expanded', !isExpanded);
+            mobileMenu.style.display = isExpanded ? 'none' : 'block';
+        });
+
+        const mobileLinks = mobileMenu.querySelectorAll('a');
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.style.display = 'none';
+                mobileMenuButton.setAttribute('aria-expanded', 'false');
+            });
+        });
+
+
+        // Start the application initialization
+        initializeFirebase();
+
+    </script>
+</body>
+</html>
