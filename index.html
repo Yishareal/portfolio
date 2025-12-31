@@ -228,18 +228,18 @@
                         <span class="text-lg font-medium text-text-primary text-center">Client Relationship & Support</span>
                     </div>
 
-                    <!-- Skill Card 6: Communication & Other -->
+                    <!-- Skill Card 7: Programming & Web (NEW) -->
                     <div class="flex flex-col items-center p-6 bg-bg-main rounded-xl shadow-lg border border-gray-100 hover:border-accent-pink transition duration-300">
-                        <!-- Icon: Message Square -->
                         <svg class="w-12 h-12 text-accent-pink mb-3" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" class="text-accent-pink" stroke="currentColor" stroke-width="2"></path>
+                            <polyline points="16 18 22 12 16 6"></polyline>
+                            <polyline points="8 6 2 12 8 18"></polyline>
                         </svg>
-                        <span class="text-lg font-medium text-text-primary text-center">Process Automation & Ops</span>
+                        <span class="text-lg font-medium text-text-primary text-center">Web Dev & Programming (HTML, CSS, Java)</span>
                     </div>
                 </div>
             </div>
         </section>
-
+        
         <!-- Projects Section (Updated for VA focus) -->
         <section id="projects" class="py-20 lg:py-32 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <h2 class="text-4xl font-bold text-center mb-16 text-accent-pink">Featured Projects</h2>
@@ -405,24 +405,49 @@
             </div>
         </section>
 
-        <!-- Contact Section (UPDATED FOR FALLBACK MOCK SUBMISSION) -->
+         
+        <!-- Contact Section -->
         <section id="contact" class="py-20 lg:py-32 bg-bg-card">
-            <div class="max-w-xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <div class="max-w-4xl mx-auto px-4 text-center">
                 <h2 class="text-4xl font-bold mb-4 text-accent-pink">Get in Touch</h2>
-                <p class="text-lg text-text-secondary mb-8">Have a project in mind or just want to say hello? Send me a message, and I'll get back to you as soon as possible.</p>
+                <p class="text-lg text-text-secondary mb-12">I'd love to hear from you. Use the platforms below for a direct message or send me an email!</p>
 
-                <form id="contact-form" class="space-y-4 bg-bg-main p-8 rounded-xl shadow-2xl border border-gray-100">
-                    <!-- Name Input -->
-                    <input type="text" id="contact-name" placeholder="Your Name" class="w-full p-3 rounded-lg bg-white border border-gray-200 text-text-primary placeholder-text-secondary focus:ring-accent-pink focus:border-accent-pink transition duration-200" required>
-                    <!-- Email Input -->
-                    <input type="email" id="contact-email" placeholder="Your Email" class="w-full p-3 rounded-lg bg-white border border-gray-200 text-text-primary placeholder-text-secondary focus:ring-accent-pink focus:border-accent-pink transition duration-200" required>
-                    <!-- Message Textarea -->
-                    <textarea id="contact-message" placeholder="Your Message" rows="5" class="w-full p-3 rounded-lg bg-white border border-gray-200 text-text-primary placeholder-text-secondary focus:ring-accent-pink focus:border-accent-pink transition duration-200" required></textarea>
+                <!-- Direct Contact Details -->
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-6 mb-16">
+                    <a href="https://upwork.com/freelancers/yishar" target="_blank" class="contact-link flex flex-col items-center bg-bg-main p-6 rounded-xl shadow-sm border border-pink-100">
+                        <svg class="w-8 h-8 mb-2" fill="currentColor" viewBox="0 0 24 24"><path d="M18.561 3.29c-2.316 0-4.024 1.102-4.908 3.32-.614 1.543-.882 3.33-.996 4.79-.526-2.115-1.572-4.144-3.14-5.83l-.048-.051-1.39 1.39.048.051c1.233 1.328 2.053 2.91 2.44 4.545a6.43 6.43 0 0 0-3.145 1.565 6.452 6.452 0 0 0-1.895 4.582c0 3.563 2.898 6.46 6.46 6.46 3.563 0 6.46-2.898 6.46-6.46V11.14c0-1.464.136-2.673.407-3.626.368-1.295 1.181-1.92 2.215-1.92 1.56 0 2.227 1.196 2.227 2.766v5.82c0 2.73 1.76 4.954 4.49 4.954 2.73 0 4.49-2.224 4.49-4.954v-5.82c0-3.32-1.92-5.046-4.56-5.046zM12.42 17.653c0 2.238-1.82 4.058-4.058 4.058-2.238 0-4.058-1.82-4.058-4.058 0-1.25.568-2.454 1.565-3.26a4.032 4.032 0 0 1 2.493-.798c2.238 0 4.058 1.82 4.058 4.058z"/></svg>
+                        <span class="font-bold text-sm">Upwork</span>
+                    </a>
+                    <a href="https://v2.onlinejobs.ph/jobseekers/info/1178369" target="_blank" class="contact-link flex flex-col items-center bg-bg-main p-6 rounded-xl shadow-sm border border-pink-100">
+                        <svg class="w-8 h-8 mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" /></svg>
+                        <span class="font-bold text-sm">OnlineJobs</span>
+                    </a>
+                    <a href="https://t.me/Shamay0913" target="_blank" class="contact-link flex flex-col items-center bg-bg-main p-6 rounded-xl shadow-sm border border-pink-100">
+                        <svg class="w-8 h-8 mb-2" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69.01-.03.01-.14-.07-.2-.08-.06-.19-.04-.27-.02-.12.02-1.96 1.25-5.54 3.69-.52.35-.99.53-1.41.52-.46-.01-1.35-.26-2.01-.48-.81-.27-1.45-.42-1.39-.88.03-.24.36-.49.99-.75 3.88-1.69 6.46-2.8 7.74-3.35 3.69-1.54 4.45-1.81 4.95-1.82.11 0 .35.03.5.16.13.1.17.24.18.34.02.06.02.19.01.24z"/></svg>
+                        <span class="font-bold text-sm">Telegram</span>
+                    </a>
+                    <a href="https://wa.me/639752137064" target="_blank" class="contact-link flex flex-col items-center bg-bg-main p-6 rounded-xl shadow-sm border border-pink-100">
+                        <svg class="w-8 h-8 mb-2" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L0 24l6.335-1.662c1.72.94 3.659 1.437 5.634 1.437h.005c6.558 0 11.895-5.335 11.898-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+                        <span class="font-bold text-sm">WhatsApp</span>
+                    </a>
+                </div>
+
+                <!-- Email Form -->
+                <form action="https://formsubmit.co/yishaqt@gmail.com" method="POST" class="space-y-4 bg-bg-main p-8 rounded-xl shadow-2xl border border-gray-100">
+                    <input type="text" name="name" placeholder="Your Name" class="w-full p-3 rounded-lg border border-gray-200" required>
+                    <input type="email" name="email" placeholder="Your Email" class="w-full p-3 rounded-lg border border-gray-200" required>
+                    <textarea name="message" placeholder="Your Message" rows="5" class="w-full p-3 rounded-lg border border-gray-200" required></textarea>
                     
-                    <!-- Submit Button -->
-                    <button type="submit" id="submit-btn" class="w-full bg-accent-pink text-white font-bold py-3 rounded-lg shadow-lg hover:bg-pink-300 transition duration-300 transform hover:scale-[1.02]">
+                    <input type="hidden" name="_subject" value="New Contact from Portfolio!">
+                    <input type="hidden" name="_template" value="table">
+                    
+                    <button type="submit" class="w-full bg-accent-pink text-white font-bold py-3 rounded-lg shadow-lg hover:bg-pink-300 transition duration-300 transform hover:scale-[1.02]">
                         Send Message
                     </button>
+                </form>
+            </div>
+        </section>
+    </main>
 
                     <!-- Feedback Message Area -->
                     <p id="form-feedback" class="pt-2 text-sm text-center min-h-6"></p>
