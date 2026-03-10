@@ -480,31 +480,50 @@
     </footer>
 
     <!-- PROJECT DETAILS MODAL -->
-    <div id="project-modal" class="fixed inset-0 bg-text-primary/70 z-[60] flex items-center justify-center p-4 transition-opacity duration-300 opacity-0 pointer-events-none" aria-hidden="true">
-        <div role="dialog" aria-modal="true" class="bg-bg-card w-full max-w-2xl max-h-full rounded-xl shadow-2xl overflow-y-auto transform transition-all duration-300 scale-95">
-            <div class="p-6 sm:p-8">
-                <!-- Modal Header -->
-                <div class="flex justify-between items-start border-b pb-4 mb-4 sticky top-0 bg-bg-card">
-                    <h3 id="modal-title" class="text-3xl font-extrabold text-accent-pink">Project Title</h3>
-                    <button onclick="closeModal()" class="text-text-secondary hover:text-accent-pink p-1 rounded-full transition duration-150">
-                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
-                    </button>
+    <div id="project-modal" class="fixed inset-0 z-[100] hidden bg-black/80 backdrop-blur-md flex items-center justify-center p-2 sm:p-4 transition-opacity duration-300 opacity-0">
+    <div id="modal-container" class="bg-white w-full max-w-2xl rounded-2xl sm:rounded-3xl overflow-hidden shadow-2xl transform scale-95 opacity-0 transition-all duration-300 max-h-[95vh] flex flex-col">
+        
+        <div class="relative h-40 sm:h-64 flex-shrink-0">
+            <img id="modal-image" src="" class="w-full h-full object-cover">
+            <button onclick="closeModal()" class="absolute top-3 right-3 bg-black/50 text-white p-2 rounded-full hover:bg-accent-pink transition z-10">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+            </button>
+        </div>
+
+        <div class="p-5 sm:p-8 overflow-y-auto custom-scrollbar">
+            <h3 id="modal-title" class="text-2xl sm:text-3xl font-bold text-text-primary mb-3 leading-tight"></h3>
+            <p id="modal-summary" class="text-sm sm:text-base text-text-secondary mb-6 font-medium border-l-4 border-pink-200 pl-4"></p>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="space-y-3">
+                    <h4 class="text-[10px] sm:text-xs font-black uppercase tracking-widest text-accent-pink">Key Achievements</h4>
+                    <ul id="modal-details" class="text-xs sm:text-sm text-text-secondary space-y-2 list-none"></ul>
                 </div>
-                
-                <!-- Modal Body - Content injected by JS -->
-                <div id="modal-content" class="space-y-6 text-text-primary">
-                    <!-- Dynamic content goes here -->
+
+                <div class="space-y-3">
+                    <h4 class="text-[10px] sm:text-xs font-black uppercase tracking-widest text-accent-pink">Technologies Used</h4>
+                    <div id="modal-tech" class="flex flex-wrap gap-2"></div>
                 </div>
-                
-                <!-- Modal Footer -->
-                <div class="mt-6 pt-4 border-t text-right">
-                    <button onclick="closeModal()" class="bg-text-secondary text-white font-medium py-2 px-4 rounded-lg hover:bg-gray-700 transition duration-300">
-                        Close
-                    </button>
-                </div>
+            </div>
+
+            <div class="mt-8 pt-6 border-t border-gray-100 flex justify-end">
+                <button onclick="closeModal()" class="w-full sm:w-auto bg-accent-pink text-white px-8 py-3 rounded-xl sm:rounded-full font-bold shadow-lg hover:shadow-pink-300/50 active:scale-95 transition-all">
+                    Close Details
+                </button>
             </div>
         </div>
     </div>
+</div>
+
+<style>
+    /* Prevent background scrolling when modal is open */
+    .modal-open { overflow: hidden !important; }
+    
+    /* Custom scrollbar for the modal content */
+    .custom-scrollbar::-webkit-scrollbar { width: 4px; }
+    .custom-scrollbar::-webkit-scrollbar-track { background: #f1f1f1; }
+    .custom-scrollbar::-webkit-scrollbar-thumb { background: #ec4899; border-radius: 10px; }
+</style>
 
     <!-- Firebase and Application Logic -->
     <script type="module">
@@ -543,8 +562,7 @@
 
         // Modal Elements
         const modal = document.getElementById('project-modal');
-        const modalTitle = document.getElementById('modal-title');
-        const modalContent = document.getElementById('modal-content');
+        const container = document.getElementById('modal-container');
 
         // Firestore collection path (Public data, so anyone can submit)
         const MESSAGE_COLLECTION_PATH = `artifacts/${appId}/public/data/contact_messages`;
@@ -600,19 +618,51 @@
                 technologies: ['Tinder/Hinge/Bumble', 'Profile Copywriting', 'Photo Selection & Optimization', 'Communication Strategy', 'Calendar Management (Google/Outlook)']
             }
         };
-
+        
 
         // --- MODAL FUNCTIONS ---
         // Expose function globally for the close button's onclick
-        window.closeModal = () => {
-            modal.classList.remove('opacity-100');
-            modal.classList.add('opacity-0', 'pointer-events-none');
-            modal.children[0].classList.remove('scale-100');
-            modal.children[0].classList.add('scale-95');
 
-            // Restore scrolling on the body
-            document.body.style.overflow = 'auto';
-        };
+        window.openModal = (id) => {
+        const data = projectData[id];
+        if (!data) return;
+
+        document.getElementById('modal-title').innerText = data.title;
+        document.getElementById('modal-image').src = data.image;
+        document.getElementById('modal-summary').innerText = data.summary;
+        
+        document.getElementById('modal-details').innerHTML = data.details
+            .map(item => `<li class="flex items-start"><span class="text-accent-pink mr-2">✦</span>${item}</li>`).join('');
+
+        document.getElementById('modal-tech').innerHTML = data.technologies
+            .map(tech => `<span class="bg-gray-100 text-text-primary px-2 py-1 rounded-lg text-[10px] sm:text-xs font-bold border border-gray-200">${tech}</span>`).join('');
+
+        modal.classList.remove('hidden');
+        document.body.classList.add('modal-open');
+        
+        setTimeout(() => {
+            modal.classList.add('opacity-100');
+            container.classList.remove('scale-95', 'opacity-0');
+            container.classList.add('scale-100', 'opacity-100');
+        }, 10);
+    };
+
+        window.closeModal = () => {
+        modal.classList.remove('opacity-100');
+        container.classList.replace('scale-100', 'scale-95');
+        container.classList.replace('opacity-100', 'opacity-0');
+        setTimeout(() => {
+            modal.classList.add('hidden');
+            document.body.classList.remove('modal-open');
+        }, 300);
+    };
+
+    document.querySelectorAll('.js-project-card').forEach(card => {
+        card.addEventListener('click', () => openModal(card.getAttribute('data-project-id')));
+    });
+
+    modal.addEventListener('click', (e) => { if (e.target === modal) closeModal(); });
+
 
         const showProjectDetails = (projectId) => {
             const data = projectData[projectId];
